@@ -1,0 +1,37 @@
+MERIDIAN AP AUTOMATION — RUBRIC ALIGNMENT CHECK
+Based on: Advanced AI for Business Automation | Formative Assessment Project | Dr. Neha Advani
+This file is a candid implementation checklist, not a claim of guaranteed marks.
+
+PROTOTYPE EVIDENCE ALREADY INCLUDED
+1. End-to-end bounded process: synthetic invoice intake, validation, exception handling, approval routing, payment planning, simulated posting/reconciliation.
+2. Multiple stages and branches: intake confidence gate; duplicate/bank/GSTIN/PO/GRN checks; exception query/retry/escalation; AP/CFO approval routing; cash-limit deferral.
+3. Multiple tools/data sources: local SQLite persistence, synthetic invoice/case records, CSV export/import for reconciliation, rule checks, payment subset optimizer.
+4. Memory/state: invoice records, case history, messages/query attempts, workflow trace, payment plan and audit events are stored or carried across stages.
+5. Human oversight: approval controls, exception escalation, separate payment-plan approval. Role selector is demonstrative only, not secure authentication.
+6. Test data: 20-case synthetic proposal workflow test set and 20 hand-authored validation scenarios, including multiple exceptions.
+7. KPI outputs: measured synthetic STP calculation, scenario outcomes and audit traces are exported. Results are synthetic and must not be represented as production performance.
+8. Reliability evidence: automated tests are included. Run the test command in README on the final machine and save the terminal output.
+
+IMPORTANT GAPS / EVIDENCE STILL REQUIRED FOR THE FULL COURSE ASSESSMENT
+A. The course requires FOUR mandatory deliverables: (1) project proposal, (2) final project report, (3) working prototype, and (4) final presentation with viva. This ZIP is the prototype package, not the complete submission.
+B. The proposal/report should include a documented As-Is process map, stakeholders/pain points, Agentic Readiness Test, agent roles, autonomy level for every stage, tools, hand-offs, escalation rules, data sources, assumptions and project timeline.
+C. Baseline KPIs in the app are explicitly assumptions, not measured baselines. For the report, time a manual/as-is sample or clearly label the baseline as an assumption and do not claim measured improvement without evidence.
+D. The 20-case test set is synthetic and deterministic. Include the exported results and discuss false positives/false negatives, what-if cases and limitations. Do not claim that a test pass proves GST/tax compliance.
+E. The implementation is rule-based; the optional LangGraph runtime provides real StateGraph orchestration with deterministic nodes, but there is no LLM-powered planning, real OCR, email, ERP, GST portal, or bank connection. Explain this honestly and demonstrate conditional decisions, exception routing, state, tool use and human hand-offs. Do not describe it as a deployed autonomous LLM system.
+F. Include a workflow/architecture diagram, guardrails/governance, privacy/security, risks/ethics, business impact/ROI assumptions, implementation roadmap and references in the final report.
+G. Demonstrate at least one clean end-to-end case, one exception, one what-if/re-planning case, an approval/escalation, audit trace and KPI output. Save screenshots, CSVs and test logs as evidence.
+H. Check the app's actual behaviour in a browser on the laptop used for presentation. Automated tests do not verify all Streamlit interactions or guarantee the optional LangGraph dependency is installed.
+
+FINAL PRE-SUBMISSION CHECKLIST
+[ ] Install requirements and run all automated tests.
+[ ] Launch Streamlit and manually click through all key pages.
+[ ] Run and export the 20-case workflow results and agent trace.
+[ ] Run and export the 20-case validation test results.
+[ ] Demonstrate duplicate/bank-change hold, exception escalation, approval routing and cash-limited payment plan.
+[ ] Save screenshots and terminal test output.
+[ ] Prepare the proposal, final report and 10–15 minute presentation separately.
+[ ] Cite/acknowledge AI-assisted code/content/data according to institutional rules.
+[ ] Use synthetic data only; no real supplier, tax, bank or confidential data.
+
+WORKFLOW TEST-SET INTERPRETATION
+The 20-case workflow lab includes price-mismatch and missing-GRN cases with intentionally simulated corrective replies. These cases should be interpreted as QUERY → RESOLVE → STP only after re-validation succeeds. The expected-outcome labels and UI caption were updated to make this clear, and a regression test covers both scenario types. The result still uses synthetic replies, not real supplier/warehouse communication.
